@@ -17,7 +17,7 @@ class TestDog:
         '''prints "Name must be string between 1 and 25 characters." if empty string.'''
         captured_out = io.StringIO()
         sys.stdout = captured_out
-        Dog(name="")
+        Dog(name="", breed='Mastiff')
         sys.stdout = sys.__stdout__
         assert(captured_out.getvalue() == "Name must be string between 1 and 25 characters.\n")
 
@@ -25,7 +25,7 @@ class TestDog:
         '''prints "Name must be string between 1 and 25 characters." if not string.'''
         captured_out = io.StringIO()
         sys.stdout = captured_out
-        Dog(name=123)
+        Dog(name=123, breed='Mastiff')
         sys.stdout = sys.__stdout__
         assert(captured_out.getvalue() == "Name must be string between 1 and 25 characters.\n")
 
@@ -33,7 +33,7 @@ class TestDog:
         '''prints "Name must be string between 1 and 25 characters." if string over 25 characters.'''
         captured_out = io.StringIO()
         sys.stdout = captured_out
-        Dog(name="What do dogs do on their day off? Can't lie around - that's their job.")
+        Dog(name="What do dogs do on their day off? Can't lie around - that's their job.", breed='Mastiff')
         sys.stdout = sys.__stdout__
         assert(captured_out.getvalue() == "Name must be string between 1 and 25 characters.\n")
 
